@@ -27,6 +27,10 @@ const urls = generateUrls(vidList);
     const browser = await launch({ headless: true });
     const page = await browser.newPage();
 
+    if (!fs.existsSync('./responses')) {
+        fs.mkdirSync('./responses', { recursive: true });
+    }
+
     for (const [index, url] of urls.entries()) {
         page.on('response', async (response) => {
             const responseUrl = response.url();

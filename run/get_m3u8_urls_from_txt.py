@@ -23,6 +23,8 @@ if __name__ == "__main__":
     responses_dir = './responses'
     output_file = './m3u8/m3u8_urls.txt'
 
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
     urls = []
     for filename in os.listdir(responses_dir):
         filepath = os.path.join(responses_dir, filename)
