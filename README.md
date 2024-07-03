@@ -1,0 +1,1 @@
+My grandpa asked me to download a TV series, which he wants to watch on his smart TV. Before downloading, I didn't notice that the video IDs I found were out of order. I planned to use OCR to sort them, but there wasn't enough time, so I had to resort to the ugly solution of manually labeling and sorting them.
