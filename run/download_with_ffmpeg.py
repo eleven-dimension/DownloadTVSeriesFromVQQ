@@ -16,7 +16,13 @@ with open(input_file, 'r', encoding='utf-8') as file:
         ffmpeg_command = [
             'ffmpeg',
             '-i', m3u8_url,
-            '-c', 'copy',
+            '-c:v', 'libx264',
+            '-profile:v', 'baseline',
+            '-level', '3.0',
+            '-pix_fmt', 'yuv420p',
+            '-c:a', 'aac',
+            '-b:a', '128k',
+            '-ac', '2',
             output_filename
         ]
 

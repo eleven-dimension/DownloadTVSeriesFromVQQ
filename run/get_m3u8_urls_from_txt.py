@@ -13,9 +13,13 @@ def get_m3u8_url(filepath):
         json_str = match.group(1)
         try:
             json_obj = json.loads(json_str)
-            return json_obj["vl"]["vi"][0]["ul"]["ui"][0]["url"]
+            max_vt_item = max(json_obj["vl"]["vi"][0]["ul"]["ui"], key=lambda x: x["vt"])
+            return max_vt_item["url"]
         except json.JSONDecodeError as e:
             print("json error:", e)
+            return ""
+        except (KeyError, TypeError) as e:
+            print("key or type error:", e)
             return ""
     return ""
 
