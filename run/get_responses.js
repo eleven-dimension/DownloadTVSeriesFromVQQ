@@ -33,8 +33,9 @@ const urls = generateUrls(vidList);
             if (responseUrl.includes('m3u8')) {
                 try {
                     const text = await response.text();
+                    const paddedIndex = String(index + 1).padStart(2, '0');
                     console.log('URL:', responseUrl);
-                    fs.writeFileSync(`./responses/response_${index}.txt`, `URL: ${responseUrl}\nResponse: ${text}\n\n`, { flag: 'a' });
+                    fs.writeFileSync(`./responses/response_${paddedIndex}.txt`, `URL: ${responseUrl}\nResponse: ${text}\n\n`, { flag: 'a' });
                 } catch (err) {
                     console.error('Error fetching response:', err);
                 }
